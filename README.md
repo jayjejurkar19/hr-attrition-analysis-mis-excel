@@ -1,12 +1,12 @@
-# 📊 HR Employee Attrition Analysis Dashboard
+# 📊 HR Employee Attrition Analysis Dashboard | Microsoft Excel
 
-An interactive, two-page HR analytics dashboard developed to analyze employee demographics, workforce distribution, organizational tenure, compensation, and employee attrition patterns.
+An interactive, two-tab HR analytics dashboard built entirely in Microsoft Excel to explore employee demographics, workforce distribution, organizational tenure, compensation, and employee attrition patterns.
 
-This project transforms raw HR records into structured, standardized data and meaningful visual insights using **Microsoft Excel, MySQL, and data visualization techniques**. It explores workforce trends, identifies employee attrition patterns across different organizational dimensions, and provides management with a consolidated view of workforce composition and retention.
+This project transforms raw HR records into structured, standardized data and actionable visual insights through Excel formulas, PivotTables, PivotCharts, and interactive slicers. The objective is to help understand workforce composition, identify employee attrition patterns, and highlight areas that may require further investigation by HR management.
 
 ---
 
-## 📌 Table of Contents
+## 📑 Table of Contents
 
 1. [Project Overview](#-project-overview)
 2. [Business Objectives](#-business-objectives)
@@ -14,101 +14,119 @@ This project transforms raw HR records into structured, standardized data and me
 4. [Dataset Overview](#-dataset-overview)
 5. [Data Cleaning & Preparation](#-data-cleaning--preparation)
 6. [Dashboard Overview](#-dashboard-overview)
-   - [Tab 1: Demographic & Regional Analysis](#-tab-1-demographic--regional-attrition-dynamics)
-   - [Tab 2: Temporal, Role-Based & Compensation Analysis](#-tab-2-temporal-role-based--compensation-insights)
+   - [Tab 1: Demographic & Regional Attrition Dynamics](#-tab-1-demographic--regional-attrition-dynamics)
+   - [Tab 2: Temporal, Role-Based & Compensation Insights](#-tab-2-temporal-role-based--compensation-insights)
 7. [Key Analytical Findings](#-key-analytical-findings)
-8. [SQL Validation](#-sql-validation)
-9. [Business Recommendations](#-business-recommendations)
-10. [Project Workflow](#-project-workflow)
-11. [Repository Structure](#-repository-structure)
-12. [Limitations](#-limitations)
+8. [Business Recommendations](#-business-recommendations)
+9. [Project Workflow](#-project-workflow)
+10. [Repository Structure](#-repository-structure)
+11. [Project Limitations](#-project-limitations)
+12. [Conclusion](#-conclusion)
 
 ---
 
 ## 🎯 Project Overview
 
-Employee attrition is an important workforce management challenge. Understanding why employees leave, which employee segments experience higher turnover, and how workforce characteristics relate to retention can help organizations make better HR decisions.
+Employee attrition is an important challenge for organizations because workforce turnover can affect productivity, recruitment costs, employee engagement, and organizational stability.
 
-The objective of this project is to explore employee attrition patterns across multiple dimensions, including:
+The objective of this project is to analyze employee attrition patterns across different workforce dimensions using Microsoft Excel.
 
-- Gender and regional distribution.
-- Employee age groups.
-- Years of service within the organization.
-- Hiring trends and recruitment years.
-- Job titles and organizational hierarchy.
-- Salary distribution and compensation brackets.
+The analysis explores:
 
-The final solution consists of two interactive dashboard tabs, supported by spreadsheet-based data cleaning and SQL-based analytical validation.
+- Employee demographics and gender distribution.
+- Regional workforce composition and attrition.
+- Employee tenure and retention patterns.
+- Age-wise attrition distribution.
+- Hiring-year trends.
+- Job title-wise attrition.
+- Salary distribution and attrition counts.
+
+The final deliverable is an interactive Excel dashboard consisting of two analytical tabs, supported by spreadsheet-based data cleaning, transformation, PivotTables, and visualizations.
+
+---
 
 ## 🎯 Business Objectives
 
-The project focuses on answering the following business questions:
+The project aims to answer the following HR-related business questions:
 
-- What proportion of employees have left the organization?
-- How does attrition differ across gender groups?
-- Which geographical regions experience higher attrition?
-- At which organizational tenure stages is employee turnover more prominent?
-- How does attrition vary across different age groups?
-- How have attrition patterns changed across hiring years?
-- Which job titles experience comparatively higher attrition?
-- How are employees distributed across different salary brackets?
+1. What proportion of employees have left the organization compared with those who stayed?
+2. How does attrition vary across gender groups?
+3. Which geographical regions show comparatively higher attrition?
+4. At which stages of organizational tenure is employee turnover more prominent?
+5. How does attrition differ across age groups?
+6. How do attrition patterns vary across different hiring years?
+7. Which job titles have comparatively higher attrition?
+8. How are employees distributed across different salary brackets?
+9. Which workforce segments may require further investigation to improve employee retention?
 
 ---
 
 ## 🛠️ Tools & Technologies
 
-| Tool | Purpose |
-|---|---|
-| Microsoft Excel | Data cleaning, standardization, and transformation |
-| MySQL | Data validation, aggregation, and analytical queries |
-| Excel PivotTables | Data summarization and dashboard data preparation |
-| Excel Charts | Interactive data visualization |
-| Excel Slicers | Dynamic filtering and dashboard interaction |
-| GitHub | Project documentation and version control |
+The entire project was developed using Microsoft Excel.
+
+| Tool / Feature         | Application                                                     |
+| ---------------------- | --------------------------------------------------------------- |
+| Microsoft Excel        | Data cleaning, preparation, analysis, and dashboard development |
+| Excel Formulas         | Data standardization and transformation                         |
+| IF / IFERROR           | Handling blank and unmatched values                             |
+| VLOOKUP                | Mapping inconsistent categorical values                         |
+| TRIM / UPPER           | Removing unnecessary spaces and standardizing text              |
+| SUBSTITUTE / MID / LEN | Phone number formatting and validation                          |
+| PivotTables            | Data aggregation and summarization                              |
+| PivotCharts            | Visual representation of analytical findings                    |
+| Slicers                | Interactive dashboard filtering                                 |
 
 ---
 
 ## 📁 Dataset Overview
 
-The project uses an HR employee dataset containing employee-level information across demographic, organizational, compensation, and employment-related attributes.
+The project uses an HR employee dataset containing employee-level information across demographic, geographical, organizational, compensation, and employment-related attributes.
 
-The dataset includes fields such as:
+### Dataset Attributes
 
-| Category | Attributes |
-|---|---|
-| Employee Information | Employee ID, Full Name |
-| Demographics | Age, Gender |
-| Geography | Region |
-| Employment | Hire Date, Years at Company |
-| Organizational Structure | Department, Job Title |
-| Compensation | Salary, Salary Group |
-| Employee Experience | Job Satisfaction, Performance Rating |
-| Workforce Activity | Monthly Hours |
-| Employment Outcome | Attrition |
+| Category                 | Fields                               |
+| ------------------------ | ------------------------------------ |
+| Employee Information     | Employee ID, Full Name               |
+| Demographics             | Age, Gender                          |
+| Geography                | Region                               |
+| Employment               | Hire Date, Years at Company          |
+| Organizational Structure | Department, Job Title                |
+| Compensation             | Salary, Salary Group                 |
+| Employee Experience      | Job Satisfaction, Performance Rating |
+| Workforce Activity       | Monthly Hours                        |
+| Employment Outcome       | Attrition                            |
+| Additional Information   | Payment Method, Phone Number         |
 
-The dataset was prepared for analysis by standardizing inconsistent values, handling missing entries, and creating structured analytical categories.
+The raw dataset contained inconsistent categorical values, different formatting conventions, and missing entries that required preparation before analysis.
 
 ---
 
 ## 🧹 Data Cleaning & Preparation
 
-Data preparation was performed in Microsoft Excel before building the analytical dashboards.
+Data cleaning and standardization were performed entirely in Microsoft Excel.
 
-The objective was to improve data consistency, reduce duplicate category representations, and ensure that the dataset could be accurately summarized using PivotTables and SQL queries.
+The primary objective was to improve data consistency, standardize categorical values, validate phone number formats, and prepare the dataset for accurate analysis.
 
-### 1. Region Standardization
+Helper columns were created using Excel formulas, and the resulting values were reviewed before being used in the final analytical dataset.
 
-**Problem:** Regional information contained inconsistent abbreviations, naming conventions, and capitalization.
+### 1. Region Standardization (Q → R)
 
-**Solution:** Standardized regional values into five consistent categories.
+**Problem:**
 
-| Original Values | Standardized Value |
-|---|---|
-| EUR, EUROPE | EUROPE |
-| NA, N. AMERICA, NORTH AMERICA | NORTH AMERICA |
-| APAC, ASIA PACIFIC | ASIA PACIFIC |
-| ME, MID EAST, MIDDLE EAST | MIDDLE EAST |
-| LATAM, LATIN AMERICA | LATIN AMERICA |
+Regional information contained inconsistent abbreviations, spelling variations, and capitalization.
+
+**Solution:**
+
+Standardized regional values into five consistent categories.
+
+| Original Values               | Standardized Value |
+| ----------------------------- | ------------------ |
+| EUR, EUROPE                   | EUROPE             |
+| NA, N. AMERICA, NORTH AMERICA | NORTH AMERICA      |
+| APAC, ASIA PACIFIC            | ASIA PACIFIC       |
+| ME, MID EAST, MIDDLE EAST     | MIDDLE EAST        |
+| LATAM, LATIN AMERICA          | LATIN AMERICA      |
 
 **Excel Formula (R2):**
 
@@ -116,20 +134,30 @@ The objective was to improve data consistency, reduce duplicate category represe
 =IF(TRIM(Q2)="","",IFERROR(VLOOKUP(UPPER(TRIM(Q2)),{"EUR","EUROPE";"EUROPE","EUROPE";"NA","NORTH AMERICA";"N. AMERICA","NORTH AMERICA";"NORTH AMERICA","NORTH AMERICA";"APAC","ASIA PACIFIC";"ASIA PACIFIC","ASIA PACIFIC";"ME","MIDDLE EAST";"MID EAST","MIDDLE EAST";"MIDDLE EAST","MIDDLE EAST";"LATAM","LATIN AMERICA";"LATIN AMERICA","LATIN AMERICA"},2,FALSE),"CHECK"))
 ```
 
-Unrecognized values return `CHECK` for further investigation.
+**Cleaning logic:**
 
-### 2. Payment Method Standardization
+- TRIM removes unnecessary leading and trailing spaces.
+- UPPER standardizes capitalization.
+- VLOOKUP maps recognized variations to their standard values.
+- IFERROR identifies unmatched values using `CHECK`.
+- Blank source cells remain blank.
 
-**Problem:** Payment methods contained inconsistent capitalization and abbreviated entries.
+### 2. Payment Method Standardization (S → T)
 
-**Solution:** Standardized payment methods into four categories.
+**Problem:**
 
-| Original Values | Standardized Value |
-|---|---|
-| DIRECT DEPOSIT, DD | DIRECT DEPOSIT |
-| CASH | CASH |
-| WIRE TRANSFER, WIRE | WIRE TRANSFER |
-| CHECK, CHK | CHECK |
+Payment methods contained inconsistent capitalization and abbreviated entries.
+
+**Solution:**
+
+Standardized payment methods into four categories.
+
+| Original Values     | Standardized Value |
+| ------------------- | ------------------ |
+| DIRECT DEPOSIT, DD  | DIRECT DEPOSIT     |
+| CASH                | CASH               |
+| WIRE TRANSFER, WIRE | WIRE TRANSFER      |
+| CHECK, CHK          | CHECK              |
 
 **Excel Formula (T2):**
 
@@ -137,22 +165,31 @@ Unrecognized values return `CHECK` for further investigation.
 =IF(TRIM(S2)="","",IFERROR(VLOOKUP(UPPER(TRIM(S2)),{"DIRECT DEPOSIT","DIRECT DEPOSIT";"DD","DIRECT DEPOSIT";"CASH","CASH";"WIRE TRANSFER","WIRE TRANSFER";"WIRE","WIRE TRANSFER";"CHECK","CHECK";"CHK","CHECK"},2,FALSE),"CHECK THIS"))
 ```
 
-Unrecognized entries return `CHECK THIS`.
+**Cleaning logic:**
 
-### 3. Phone Number Standardization
+- TRIM removes unnecessary spaces.
+- UPPER converts entries into uppercase.
+- VLOOKUP maps abbreviations to standardized payment methods.
+- IFERROR returns `CHECK THIS` for unmatched values.
 
-**Problem:** Phone numbers were stored in different formats, including dots, spaces, hyphens, and parentheses.
+### 3. Phone Number Standardization (U → V)
 
-**Solution:** Standardized valid 10-digit phone numbers into a consistent format.
+**Problem:**
 
-**Expected Format:** `(608) 834-6257`
+Phone numbers were stored in multiple formats, including dots, spaces, hyphens, and parentheses.
+
+**Solution:**
+
+Standardized valid 10-digit phone numbers into a consistent format.
+
+**Expected Output Format:** `(608) 834-6257`
 
 | Original Value | Standardized Value |
-|---|---|
-| 608.834.6257 | (608) 834-6257 |
-| 774-262-5380 | (774) 262-5380 |
-| 334 259 8799 | (334) 259-8799 |
-| (747) 238-5524 | (747) 238-5524 |
+| -------------- | ------------------ |
+| 608.834.6257   | (608) 834-6257     |
+| 774-262-5380   | (774) 262-5380     |
+| 334 259 8799   | (334) 259-8799     |
+| (747) 238-5524 | (747) 238-5524     |
 
 **Excel Formula (V2):**
 
@@ -160,20 +197,28 @@ Unrecognized entries return `CHECK THIS`.
 =IF(TRIM(U2)="","",IF(LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(U2,"(",""),")","")," ",""),"-",""),".",""))=10,"("&MID(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(U2,"(",""),")","")," ",""),"-",""),".",""),1,3)&") "&MID(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(U2,"(",""),")","")," ",""),"-",""),".",""),4,3)&"-"&MID(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(U2,"(",""),")","")," ",""),"-",""),".",""),7,4),"CHECK THIS"))
 ```
 
-The formula removes common formatting characters and reconstructs the phone number if exactly 10 digits are present.
+**Cleaning logic:**
 
-Invalid entries return `CHECK THIS`.
+- SUBSTITUTE removes common formatting characters.
+- LEN checks whether the number contains exactly 10 digits after cleaning.
+- MID extracts the area code, middle digits, and final four digits.
+- The formula reconstructs the phone number into a consistent format.
+- Invalid entries return `CHECK THIS`.
 
-### 4. Attrition Standardization
+### 4. Attrition Standardization (O → P)
 
-**Problem:** Employee attrition status was represented using multiple variations, including Yes, No, Y, N, Left, and Stayed.
+**Problem:**
 
-**Solution:** Standardized all entries into two categories.
+Employee attrition status was represented using different variations, including YES, NO, Y, N, LEFT, and STAYED.
+
+**Solution:**
+
+Standardized attrition values into two categories.
 
 | Original Values | Standardized Value |
-|---|---|
-| YES, Y, LEFT | YES |
-| NO, N, STAYED | NO |
+| --------------- | ------------------ |
+| YES, Y, LEFT    | YES                |
+| NO, N, STAYED   | NO                 |
 
 **Excel Formula (P2):**
 
@@ -182,140 +227,153 @@ Invalid entries return `CHECK THIS`.
 ```
 
 **Interpretation:**
+
 - YES = Employee left the organization.
 - NO = Employee remained with the organization.
 
-Unrecognized entries return `CHECK THIS`.
+Unrecognized values return `CHECK THIS` for further review.
 
 ### Data Cleaning Principles
 
-The following principles were applied throughout the cleaning process:
+The following practices were applied during data preparation:
 
 - Standardized inconsistent categorical values.
 - Removed unnecessary leading and trailing spaces.
-- Used consistent capitalization.
+- Applied consistent capitalization.
 - Preserved blank source values as blank outputs.
 - Flagged unmatched values for manual review.
-- Created helper columns to validate transformations before finalizing the cleaned dataset.
+- Used helper columns to validate transformations.
+- Prepared standardized values for PivotTable analysis.
 
-After validation, the cleaned values were used for subsequent analysis.
+**Final Cleaning Step:**
+
+1. Filled the formulas down across the dataset.
+2. Reviewed unmatched values.
+3. Checked the standardized output.
+4. Used Copy and Paste Special → Values to finalize cleaned data where appropriate.
+5. Used the prepared data for PivotTables and dashboard development.
 
 ---
 
 ## 📊 Dashboard Overview
 
-The final dashboard is divided into two interactive tabs, each focusing on a different aspect of employee attrition.
+The final Excel dashboard consists of two interactive tabs.
 
-Both tabs use a consistent dark-themed visual design with contrasting text, orange highlights, and steel-blue chart elements.
+Both tabs follow a consistent dark-mode design with high-contrast text, orange highlights, and steel-blue chart elements.
 
 ### 📍 Tab 1: Demographic & Regional Attrition Dynamics
 
-This dashboard examines employee attrition across demographic characteristics, geographical regions, and organizational tenure.
+This dashboard focuses on employee demographics, geographical distribution, and organizational tenure.
 
-**Dashboard Components**
+### Interactive Slicers
 
-#### Interactive Slicers
+| Slicer           | Available Categories                                                 |
+| ---------------- | -------------------------------------------------------------------- |
+| Gender           | Male, Female, N/A                                                    |
+| Region           | Asia Pacific, Europe, Latin America, Middle East, North America, N/A |
+| Years at Company | 0–5, 6–10, 11–15, 16–20, 21–24 years, N/A                            |
 
-| Slicer | Available Categories |
-|---|---|
-| Gender | Male, N/A |
-| Region | Asia Pacific, Europe, Latin America, Middle East, North America, N/A |
-| Years at Company | 0–5, 6–10, 11–15, 16–20, 21–24 years, N/A |
+These slicers allow users to dynamically filter the dashboard and explore specific workforce segments.
 
-These slicers allow users to filter the dashboard dynamically and explore different workforce segments.
+### Visualizations
 
-#### Visualizations
+**1. Overall Employee Attrition – Pie Chart**
 
-**1. Overall Employee Attrition (Pie Chart)**
-
-Purpose: Provides an overview of the proportion of employees who stayed and those who left.
+**Purpose:** Displays the overall proportion of employees who stayed and those who left the organization.
 
 | Attrition Status | Percentage |
-|---|---:|
-| NO – Retained | 50.69% |
-| YES – Attrited | 49.31% |
+| ---------------- | ---------: |
+| NO – Retained    |     50.69% |
+| YES – Attrited   |     49.31% |
 
-**2. Gender-wise Attrition (Clustered Column Chart)**
+**Key Observation:** The displayed distribution indicates a nearly equal split between retained and attrited employees.
 
-Purpose: Compares the distribution of retained and attrited employees across gender groups.
+**2. Gender-wise Attrition – Clustered Column Chart**
+
+**Purpose:** Compares retention and attrition distribution across gender groups.
 
 | Gender | NO – Retained | YES – Attrited |
-|---|---:|---:|
-| Female | 50.64% | 49.36% |
-| Male | 50.77% | 49.23% |
+| ------ | ------------: | -------------: |
+| Female |        50.64% |         49.36% |
+| Male   |        50.77% |         49.23% |
 
-**3. Region-wise Attrition (Clustered Column Chart)**
+**Key Observation:** The displayed proportions are very similar across both gender groups.
 
-Purpose: Examines employee attrition patterns across five geographical regions.
+**3. Region-wise Attrition – Clustered Column Chart**
 
-Key observation:
-- Latin America records a YES proportion of 48.33%.
-- Regional comparisons help identify differences in employee retention patterns across geographical territories.
+**Purpose:** Evaluates employee attrition patterns across five geographical regions.
 
-**4. Attrition by Years at Company (Clustered Column Chart)**
+**Key Observation:**
 
-Purpose: Examines how employee attrition patterns vary across organizational tenure brackets.
+- Latin America records a displayed YES proportion of 48.33%.
+- Regional comparisons provide visibility into geographical differences in workforce retention.
 
-Key observations:
-- The 11–15 years tenure group records a YES proportion of 48.14%.
-- The 6–10 years group is another important tenure segment to examine.
-- The analysis provides visibility into employee retention patterns across different stages of organizational service.
+**4. Attrition by Years at Company – Clustered Column Chart**
+
+**Purpose:** Examines how employee attrition patterns vary across different organizational tenure brackets.
+
+**Key Observation:**
+
+- The 11–15 years tenure group records a displayed YES proportion of 48.14%.
+- The 6–10 years group is another important segment for retention analysis.
+- The visualization helps identify tenure groups that may require further investigation.
 
 ---
 
 ### 📍 Tab 2: Temporal, Role-Based & Compensation Insights
 
-The second dashboard focuses on age distribution, recruitment timelines, job titles, and salary brackets to examine additional dimensions of employee attrition.
+The second dashboard explores employee attrition through age groups, hiring years, job titles, and salary brackets.
 
-#### Interactive Slicers
+### Interactive Slicers
 
-| Slicer | Available Categories |
-|---|---|
-| Hire Year | 2018–2023, N/A |
+| Slicer    | Available Categories                                                                                |
+| --------- | --------------------------------------------------------------------------------------------------- |
+| Hire Year | 2018–2023, N/A                                                                                      |
 | Job Title | Analyst, Associate, Consultant, Director, Intern, Lead, Manager, Senior Analyst, Senior Manager, VP |
 
-These filters allow users to isolate specific recruitment cohorts and organizational roles.
+These slicers allow users to investigate specific recruitment cohorts and organizational roles.
 
-#### Visualizations
+### Visualizations
 
-**1. Age-wise Attrition (Column Chart)**
+**1. Age-wise Attrition – Column Chart**
 
-Purpose: Evaluates employee attrition patterns across different age groups.
+**Purpose:** Identifies how attrition distribution varies across employee age groups.
 
 | Age Group | Attrition Percentage |
-|---|---:|
-| 21–30 | 23.96% |
-| 31–40 | 25.24% |
-| 41–50 | 24.76% |
-| 51–61 | 26.05% |
+| --------- | -------------------: |
+| 21–30     |               23.96% |
+| 31–40     |               25.24% |
+| 41–50     |               24.76% |
+| 51–61     |               26.05% |
 
-Key observation:
-- The 51–61 age group records the highest displayed attrition percentage at 26.05%.
-- The differences across age groups are relatively small.
+**Key Observation:**
 
-**2. Year-wise Attrition (Clustered Column Chart)**
+- The 51–61 age group records the highest displayed percentage at 26.05%.
+- Differences across age groups are relatively small.
 
-Purpose: Examines historical attrition patterns across recruitment years from 2010 to 2023.
+**2. Year-wise Attrition – Clustered Column Chart**
 
-Key observations:
-- The chart highlights changes in attrition distribution across different years.
+**Purpose:** Tracks historical attrition patterns across years from 2010 to 2023.
+
+**Key Observations:**
+
 - 2011 records a displayed YES proportion of 45.52% and NO proportion of 51.59%.
 - 2023 records a displayed YES proportion of 53.61%.
+- The visualization allows comparison of attrition patterns across different hiring-year cohorts.
 
-This visualization helps compare workforce outcomes across different hiring-year cohorts.
+**3. Job Title-wise Attrition – Clustered Column Chart**
 
-**3. Job Title-wise Attrition (Clustered Column Chart)**
+**Purpose:** Evaluates employee retention and attrition across organizational designations.
 
-Purpose: Compares employee retention and attrition patterns across organizational designations.
+**Key Observations:**
 
-Key observations:
 - Senior Analysts record a displayed YES proportion of 52.25%.
 - Managers record a displayed YES proportion of 50.99%.
 - Role-based comparisons help identify positions that may require further investigation into retention challenges.
 
-**4. Salary-wise Attrition (Clustered Column Chart)**
+**4. Salary-wise Attrition – Clustered Column Chart**
 
-Purpose: Examines employee distribution and attrition counts across different salary brackets.
+**Purpose:** Examines employee distribution and attrition counts across salary brackets.
 
 Salary categories include:
 
@@ -325,76 +383,79 @@ Salary categories include:
 - 100,001–125,000
 - Higher salary brackets, including above 168,000.
 
-Key observations:
-- The 25,000–50,000 and 50,001–75,000 salary brackets contain the highest employee counts.
-- These brackets also account for substantial attrition volumes.
+**Key Observations:**
 
-This visualization helps examine how workforce distribution and attrition counts vary across compensation levels.
+- The 25,000–50,000 and 50,001–75,000 brackets contain the highest employee counts.
+- These brackets also account for substantial attrition volumes.
+- The visualization helps compare workforce distribution and attrition counts across compensation categories.
 
 ---
 
 ## 📈 Key Analytical Findings
 
-The dashboard provides several observations worth investigating further:
+The dashboards highlight several workforce patterns worth investigating.
 
-| Analytical Area | Key Finding |
-|---|---|
-| Overall Attrition | 49.31% displayed attrition proportion |
-| Gender | Similar attrition distribution across male and female employees |
-| Region | Latin America records a 48.33% YES proportion |
-| Tenure | The 11–15 years group records a 48.14% YES proportion |
-| Age | The 51–61 age group has the highest displayed age-wise attrition percentage at 26.05% |
-| Recruitment Year | The 2023 cohort records a 53.61% YES proportion |
-| Job Title | Senior Analysts record a 52.25% YES proportion |
-| Salary | Lower salary brackets contain the highest employee counts and substantial attrition volumes |
+| Analytical Area   | Key Finding                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------- |
+| Overall Attrition | 49.31% displayed YES proportion                                                             |
+| Gender            | Similar attrition distribution across male and female employees                             |
+| Region            | Latin America records a 48.33% YES proportion                                               |
+| Tenure            | 11–15 years records a 48.14% YES proportion                                                 |
+| Age               | 51–61 age group records the highest displayed age-wise percentage at 26.05%                 |
+| Hiring Year       | 2023 records a displayed YES proportion of 53.61%                                           |
+| Job Title         | Senior Analysts record a 52.25% YES proportion                                              |
+| Salary            | Lower salary brackets contain the highest employee counts and substantial attrition volumes |
 
-These findings are descriptive observations from the available dataset. They identify areas for further investigation rather than establishing the underlying causes of employee turnover.
-
----
-
-## 🗄️ SQL Validation
-
-MySQL was used to validate the prepared dataset and verify analytical aggregations.
-
-The validation process focused on:
-
-- Checking total employee records.
-- Verifying YES and NO attrition counts.
-- Comparing category-level employee distributions.
-- Validating percentage calculations.
-- Checking regional and demographic aggregations.
-- Cross-checking analytical results against Excel PivotTables.
-
-This additional validation helps improve confidence in the consistency of the dashboard calculations.
+These findings are descriptive observations from the available dataset. They should not be interpreted as proof of the causes of employee turnover.
 
 ---
 
 ## 💡 Business Recommendations
 
-Based on the observed patterns, the following areas could be considered for further HR investigation:
+Based on the observed patterns, the following areas could be investigated by HR management:
 
-1. **Employee Retention:** Investigate the factors contributing to the high overall attrition proportion.
-2. **Regional Workforce Analysis:** Examine regional differences in compensation, working conditions, and employee engagement.
-3. **Tenure-based Retention:** Evaluate employee satisfaction and career progression opportunities across different tenure groups.
-4. **Role-based Retention:** Investigate retention challenges among Senior Analysts and Managers.
-5. **Compensation Analysis:** Review salary structures and employee satisfaction across lower compensation brackets.
-6. **Recruitment Cohort Analysis:** Compare newer and older hiring cohorts to understand differences in workforce outcomes.
+**1. Employee Retention**
 
-These recommendations should be supported by additional information, such as exit interview data, compensation benchmarks, employee engagement surveys, and workload analysis.
+Investigate the factors contributing to the high overall attrition proportion and identify opportunities to improve employee engagement.
+
+**2. Regional Workforce Analysis**
+
+Examine regional differences in working conditions, employee satisfaction, compensation, and management practices.
+
+**3. Tenure-based Retention**
+
+Evaluate employee satisfaction, career progression, and promotion opportunities across different organizational tenure groups.
+
+**4. Role-based Retention**
+
+Investigate retention challenges among Senior Analysts and Managers through employee feedback and exit interviews.
+
+**5. Compensation Analysis**
+
+Review salary structures and compensation competitiveness, particularly in lower salary brackets.
+
+**6. Recruitment Cohort Analysis**
+
+Compare hiring-year cohorts to understand how employee retention patterns differ across recruitment periods.
+
+These recommendations are potential areas for further investigation rather than confirmed causes of attrition.
 
 ---
 
 ## 🔄 Project Workflow
 
-The project followed a structured analytical workflow:
+The project followed a structured Excel-based analytical workflow.
 
-1. **Data Understanding:** Reviewed the raw HR dataset and identified relevant analytical fields.
-2. **Data Cleaning:** Standardized inconsistent categorical values and phone number formats using Excel formulas.
-3. **Data Validation:** Reviewed unmatched entries and checked cleaned values.
-4. **Exploratory Analysis:** Used MySQL and Excel PivotTables to examine workforce distributions and attrition patterns.
-5. **Dashboard Development:** Created two interactive dashboard tabs with charts and slicers.
-6. **Analytical Interpretation:** Identified key workforce patterns and translated them into potential business recommendations.
-7. **Documentation:** Organized the cleaning methodology, dashboard descriptions, and analytical findings for project reproducibility.
+| Step | Activity              | Description                                                     |
+| ---- | --------------------- | --------------------------------------------------------------- |
+| 1    | Data Understanding    | Reviewed the raw HR dataset and identified relevant fields      |
+| 2    | Data Cleaning         | Standardized inconsistent values using Excel formulas           |
+| 3    | Data Transformation   | Created helper columns and standardized categorical information |
+| 4    | Data Validation       | Reviewed unmatched values and checked cleaned outputs           |
+| 5    | Data Analysis         | Used PivotTables to summarize employee information              |
+| 6    | Dashboard Development | Created PivotCharts and interactive slicers                     |
+| 7    | Insight Generation    | Identified workforce and attrition patterns                     |
+| 8    | Documentation         | Documented the methodology, findings, and recommendations       |
 
 ---
 
@@ -411,36 +472,38 @@ HR-Employee-Attrition-Analysis/
 ├── Excel/
 │   └── HR_Employee_Attrition_Dashboard.xlsx
 │
-├── SQL/
-│   └── HR_Attrition_Analysis.sql
-│
 └── Dashboard_Screenshots/
     ├── Dashboard_Tab_1.png
     └── Dashboard_Tab_2.png
 ```
 
-*Repository structure is illustrative. File and folder names should match the actual uploaded project files.*
+*The structure above is a suggested repository organization. Adjust filenames to match the files actually uploaded.*
 
 ---
 
-## ⚠️ Limitations
+## ⚠️ Project Limitations
 
-- The analysis is based on the available dataset and its recorded attributes.
-- Missing and unmatched values may limit certain category-level comparisons.
-- The dashboard identifies associations and distribution patterns but does not establish causation.
-- Salary-based employee counts should not be interpreted as salary-specific attrition rates.
-- Additional HR information would be required to identify the underlying reasons for employee departures.
+- The analysis is limited to the attributes available in the dataset.
+- Missing and unmatched values may affect certain category-level comparisons.
+- The dashboard identifies patterns and relationships but does not establish causation.
+- Salary-based employee counts should not be confused with salary-specific attrition rates.
+- Additional information, such as exit interview feedback, employee engagement surveys, and compensation benchmarks, would be required to investigate the underlying causes of attrition.
+- The findings reflect the dataset used for this project and should not automatically be generalized to other organizations.
 
 ---
 
-## 👨‍💻 Project Purpose
+## 🏁 Conclusion
 
-This project demonstrates practical application of data analytics concepts, including spreadsheet-based data cleaning, data standardization, SQL validation, exploratory analysis, PivotTable reporting, and interactive dashboard development.
+The HR Employee Attrition Analysis Dashboard demonstrates how Microsoft Excel can be used to transform raw workforce data into structured information and interactive visual reports.
 
-It highlights how raw employee records can be transformed into structured information to support workforce analysis and data-driven HR decision-making.
+Through formula-based data cleaning, standardization, PivotTables, PivotCharts, and slicers, this project explores employee attrition across demographic, geographical, tenure, recruitment, job title, and compensation dimensions.
+
+The resulting dashboards provide a consolidated view of workforce patterns and highlight areas where further HR investigation may support better employee retention decisions.
+
+---
 
 **Project Category:** Data Analytics | HR Analytics | Workforce Analytics
 
-**Tools:** Microsoft Excel | MySQL | GitHub
+**Technology Used:** Microsoft Excel
 
----
+**Core Skills Demonstrated:** Data Cleaning | Data Standardization | Excel Formulas | PivotTables | PivotCharts | Interactive Dashboards | Data Analysis | Business Insights
